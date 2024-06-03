@@ -1,0 +1,70 @@
+body{
+    background-color: rgb(115, 233, 115)
+}
+.container{
+    max-width: 500px;
+    margin-top: 100px;
+}
+.searchBox{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    /*display: none;*/
+}
+.searchBox:focus{
+    box-shadow: none;
+}
+.resultContainer{
+    
+    background-color: white;
+}
+.productContainer{
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.7px solid rgb(124, 117, 117);
+    padding: 0px 10px;
+}
+.productName{
+    width: 80%;
+    font-size: 14px;
+}
+.productImage{
+    
+    height: 80%;
+   
+}
+.enteredProductContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    background-color: white;
+    
+}
+.enteredProduct{
+    height: 17%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(161, 154, 154);
+}
+.enteredImage{
+    height: 68%;
+}
+.enteredFacts{
+    height: 15%;
+    width: 100%;
+    background-color: rgb(161, 154, 154);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.removeTheDiv{
+    display: none;
+}
