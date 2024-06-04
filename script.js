@@ -1,22 +1,29 @@
-  let products;
-  const resource = "https://fakestoreapi.com/products"
-  fetch(resource)
-  .then((response)=>{
-    const responseData = response.json(); 
-    return responseData;
-  })
-  .then((productsDataFromSever)=>{
-    products = productsDataFromSever
-    console.log(products)
-    // အောက်က ကောင်တွေက ဒီကောင်တွေကို မစောင့်ဘဲ run မှာဖြစ်တဲ့ အတွက် data ယူတာကြာနေရင် ပြဿနာဖြစ်မယ်။ အဲ့တာကိုရှောင်ဖို့လုပ်ရမယ်။
-    // buildUI(); အောက်ကကောင်တွေအကုန်ကို buildUI() ထဲထည့်ပြီး ဒါမျိုးရေးရင်ရပေမယ့်သူ့မှာလည့်းပြဿနာရှိသေးတယ်။ data မရောက်သေးခင်ရိုက်ထည့်လိုက်တဲ့ကောင်တွေကိုမပြပေးတော့ဘူး
-    // searchBoxTag.style.display = "block" ဒါမျိုးရှေ့မှာ searchBoxTag ကို ဖျောက်ထားပြီး data ယူပြီးမှခေါ်လိုက်ရင် အဆင်ပြေတယ်။ဒီထက်ပိုသပ်ရပ်တာ အောက်ကနည်း။
-    searchBoxTag.disabled = false;
-    // ဒီကောင်က အကောင်းဆုံးပဲ။ ရှေ့မှာ  searboxTag ကို disable altribute‌ ပေးလိုက်တယ်။ ဒီမှာ data ယူပြီးကာကျမှ disabled false ပြန်လုပ်ပေးလိုက်တယ်။
-  })
-  .catch((err)=>{
-    console.log(err)
-  })
+    const url = "https://fakestoreapi.com/products";
+    /*
+    fetch(url)
+    .then((response)=>{
+      responseData = response.json();
+      return responseData;
+    })
+    .then((productsArrayFormPromise)=>{
+      products = productsArrayFormPromise
+      console.log(products)
+      searchBoxTag.disabled = false;
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    */
+
+    const buildUI = async ()=>{
+      const responseData =  await fetch(url);
+      const productsArrayFromPromise = await responseData.json()
+      products = productsArrayFromPromise;
+      searchBoxTag.disabled = false;
+    };
+    buildUI().catch((err)=>{
+      console.log(err);
+    });
 
     const searchBoxTag = document.getElementsByClassName("searchBox")[0];
     const resultContainerTag = document.getElementsByClassName("resultContainer")[0];
